@@ -6,6 +6,7 @@ namespace Scraper\ScraperSteam\Tests\Request;
 
 use Scraper\Scraper\Exception\ScraperException;
 use Scraper\ScraperSteam\Model\Miscellaneous\Genre;
+use Scraper\ScraperSteam\Model\Miscellaneous\Screenshot;
 use Scraper\ScraperSteam\Model\SteamApp;
 use Scraper\ScraperSteam\Request\SteamAppRequest;
 
@@ -35,6 +36,9 @@ class SteamAppRequestTest extends AbstractRequestTestCase
         $this->assertContainsOnlyInstancesOf(Genre::class, $result->genres);
         $this->assertNotEmpty($result->genres);
         $this->assertSame([1241930, 652720], $result->dlc);
+        $this->assertContainsOnlyInstancesOf(Screenshot::class, $result->screenshots);
+        $this->assertNotEmpty($result->screenshots);
+        $this->assertStringEndsWith('.1920x1080.jpg?t=1791407503', $result->screenshots[0]->pathFull);
     }
 
     public function testFreeAppHasNoPriceOverview(): void

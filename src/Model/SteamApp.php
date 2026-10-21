@@ -11,6 +11,7 @@ use Scraper\ScraperSteam\Model\Miscellaneous\Platforms;
 use Scraper\ScraperSteam\Model\Miscellaneous\PriceOverview;
 use Scraper\ScraperSteam\Model\Miscellaneous\Recommendations;
 use Scraper\ScraperSteam\Model\Miscellaneous\ReleaseDate;
+use Scraper\ScraperSteam\Model\Miscellaneous\Screenshot;
 
 class SteamApp
 {
@@ -43,6 +44,9 @@ class SteamApp
 
     /** @var array<int, Category> */
     public array $categories = [];
+
+    /** @var array<int, Screenshot> */
+    public array $screenshots = [];
     public ?ReleaseDate $releaseDate = null;
     // Absent for free-to-play apps
     public ?PriceOverview $priceOverview = null;
